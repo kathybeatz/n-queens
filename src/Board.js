@@ -16,12 +16,13 @@
       } else {
         this.set('n', params.length);
       }
+      
     },
 
     rows: function() {
       return _(_.range(this.get('n'))).map(function(rowIndex) {
         return this.get(rowIndex);
-      }, this);
+      }, this); 
     },
 
     togglePiece: function(rowIndex, colIndex) {
@@ -73,17 +74,44 @@
     /*=========================================================================
     =                 TODO: fill in these Helper Functions                    =
     =========================================================================*/
-
+ 
     // ROWS - run from left to right
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
+    
+   
+
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      //We need to attach the outer array/chessboard
+
+      var results = [];
+      //Go to the row in outer array that equals rowIndex
+      for(var i = 0; i < rowIndex.length; i++){
+      //Check each item in that row for a value of 1
+        //If value of 1, push to results
+        if(rowIndex[i] === 1){
+        results.push(rowIndex[i])
+        }
+      }
+      //If results.length > 1; return true
+      if(results.length > 1){
+        return true;
+      } else{
+      //otherwise return false   
+      return false; 
+      }
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
+      //iterate through outer array
+        // iterate through inner arrays
+        //check each item in that row for a value of 1
+        //if value of 1; push to results
+        //
+
+        //otherwise recurse
       return false; // fixme
     },
 
