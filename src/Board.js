@@ -82,16 +82,19 @@
     
    
 
-    hasRowConflictAt: function(rowIndex) {
-      //We need to attach the outer array/chessboard
+  hasRowConflictAt: function(rowIndex) {
+      // //We need to attach the outer array/chessboard
+      // console.log(this);
 
+      // var row1 = this.get(rowIndex);
+      // return row1;
       var results = [];
       //Go to the row in outer array that equals rowIndex
-      for(var i = 0; i < rowIndex.length; i++){
+      for(var i = 0; i < anAr[rowIndex].length; i++){
       //Check each item in that row for a value of 1
         //If value of 1, push to results
-        if(rowIndex[i] === 1){
-        results.push(rowIndex[i])
+        if(anAr[rowIndex][i] === 1){
+        results.push(anAr[rowIndex][i]);
         }
       }
       //If results.length > 1; return true
@@ -104,15 +107,22 @@
     },
 
     // test if any rows on this board contain conflicts
-    hasAnyRowConflicts: function() {
-      //iterate through outer array
-        // iterate through inner arrays
-        //check each item in that row for a value of 1
-        //if value of 1; push to results
-        //
-
-        //otherwise recurse
-      return false; // fixme
+    hasAnyRowConflicts: function(matrix) {
+    var anObj = {};
+     // console.log(this.hasRowConflictAt(1));
+      //this.hasRowConflictAt(2);
+     var check = false;
+     
+     for(var i = 0; i < matrix.length; i++){
+         anObj[i] = hasRowConflictAt(i, matrix);
+         console.log(anObj);
+     }
+     for(var k in anObj){
+        if(anObj[k] === true ){
+            check = true;
+        }
+     }
+     return check;
     },
 
 
