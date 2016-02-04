@@ -111,7 +111,7 @@
     var anObj = {};
      // console.log(this.hasRowConflictAt(1));
       //this.hasRowConflictAt(2);
-     var check = false;
+     var chck = false;
      
      for(var i = 0; i < matrix.length; i++){
          anObj[i] = hasRowConflictAt(i, matrix);
@@ -131,14 +131,44 @@
     // --------------------------------------------------------------
     //
     // test if a specific column on this board contains a conflict
-    hasColConflictAt: function(colIndex) {
-      return false; // fixme
-    },
+   hasColConflictAt: function(colIndex) {
+
+      var results = [];
+
+      for(var i = 0; i < anAr.length; i++){
+
+            if(anAr[i][colIndex] === 1){
+                
+                results.push(anAr[i][colIndex]);
+            }
+      }
+      //If results.length > 1; return true
+      if(results.length > 1){
+         
+        return true;
+      } else{
+      //otherwise return false 
+       return false;
+      }
+ },
 
     // test if any columns on this board contain conflicts
-    hasAnyColConflicts: function() {
-      return false; // fixme
-    },
+   hasAnyColConflicts: function(matrix) {
+    var anObj = {};
+
+     var check = false;
+     
+     for(var i = 0; i < matrix.length; i++){
+         anObj[i] = hasColConflictAt(i, matrix);
+  
+     }
+     for(var k in anObj){
+        if(anObj[k] === true ){
+            check = true;
+        }
+     }
+     return check;
+    }
 
 
 
@@ -184,3 +214,5 @@
   };
 
 }());
+
+
