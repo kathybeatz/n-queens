@@ -37,6 +37,7 @@ describe("Board", function() {
       [0, 0, 0, 0]
     ]);
   });
+console.log ("---------------START--------------")
 
   describe("Board with col conflicts", function() {
     verifyConflictTypes(['col', 'rooks', 'queens'], [
@@ -46,6 +47,8 @@ describe("Board", function() {
       [0, 0, 0, 0]
     ]);
   });
+
+  console.log("---------------END------------------");
   
   describe("Board with easy major diagonal conflict", function() {
     verifyConflictTypes(['majorDiagonal', 'queens'], [
